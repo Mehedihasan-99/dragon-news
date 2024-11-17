@@ -1,9 +1,25 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
 
+    const {userLogin, setUser} = useContext(AuthContext);
+
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password) 
+        userLogin(email, password)
+        .then(result => {
+            const user = result.user;
+            setUser(user);
+        })
+        .catch(error => alert(error.code));
+        
     }
 
     return (
@@ -16,13 +32,13 @@ const Login = () => {
                         <label className="label">
                             <span className="text-xl font-semibold ">Email Address</span>
                         </label>
-                        <input type="email" placeholder="Enter your email address" className="input bg-base-200" required />
+                        <input type="email" name="email" placeholder="Enter your email address" className="input bg-base-200" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="text-xl font-semibold">Password</span>
                         </label>
-                        <input type="password" placeholder="password" className="input bg-base-200" required />
+                        <input type="password" name="password" placeholder="password" className="input bg-base-200" required />
                     </div>
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Login</button>
