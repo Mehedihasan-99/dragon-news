@@ -4,7 +4,7 @@ import FindUs from '../FindUs';
 
 const RightNavbar = () => {
     return (
-        <div className='p-2 space-y-3'>
+        <div className='space-y-3'>
             <SocialLogin />
             <FindUs />
         </div>
