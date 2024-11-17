@@ -5,7 +5,7 @@ import LeftNavbar from "../components/Layout-component/LeftNavbar";
 import RightNavbar from "../components/Layout-component/RightNavbar";
 import Navbar from "../components/Navbar";
 
-const MainLayout = () => {
+const HomeLayout = () => {
     return (
         <div className="font-poppins">
             <header>
@@ -14,7 +14,7 @@ const MainLayout = () => {
                     <LatestNews />
                 </section>
             </header>
-            <nav className="w-11/12 lg:max-w-[1140px] mx-auto">
+            <nav className="w-11/12 lg:max-w-[1140px] mx-auto mt-5">
                 <Navbar />
             </nav>
             <main className="w-11/12 lg:max-w-[1140px] mx-auto grid md:grid-cols-12 mt-20">
@@ -33,4 +33,4 @@ const MainLayout = () => {
     );
 };
 
-export default MainLayout;
+export default HomeLayout;
